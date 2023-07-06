@@ -1,0 +1,15 @@
+#IP
+#serverip=192.168.1.11
+#gatewayip=192.168.1.1
+#nic
+nic=eth0
+#OSホスト名
+hosname=shinrawork-web01
+#sshポート
+sshport=51011
+#サーバ名
+wwwname=shinrawork.com
+#webサーバディレクトリ名
+wwwhome=laravel
+#メールアドレス
+mymailaddress=yakushijin@yakusys.com

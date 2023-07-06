@@ -1,0 +1,113 @@
+.logoBlock {
+  margin: 50px 0;
+  border-radius: 5px;
+  display: block;
+  text-align: center;
+}
+
+.mainBlock {
+  background-color: #dfe0ee;
+  border-radius: 5px;
+  display: block;
+  padding: 20px;
+  padding-bottom: 5px;
+}
+
+.menuArea {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+}
+
+.versionArea {
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+  color: #1959A8;
+  padding: 5px;
+  font-size: 10px;
+}
+
+.topMenu {
+  cursor: pointer;
+  margin: 0 2px;
+  display: inline-block;
+}
+
+.topButton {
+  font-weight: bold;
+  height: 50px;
+  width: 160px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 15px;
+  display: inline-block;
+  padding: 1em;
+  border-radius: 3px;
+  border: solid 1px #303251;
+  background: linear-gradient(to bottom, #1959A8, rgb(27, 214, 205));
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  user-select: none;
+  color: rgb(231, 227, 175);
+}
+
+.topButton:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);
+  border-bottom: none;
+}
+
+.topButton:hover {
+  color: #6d0000;
+  cursor: pointer;
+}
+
+.topButtonArea {
+  text-align: center;
+}
+
+.checkBox {
+  margin: 10px;
+}
+
+.baseMessage {
+  color: #303251;
+  text-align: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+.baseResult {
+  text-align: center;
+}
+
+.resultdisp {
+  display: inline-block;
+  text-align: center;
+  border-radius: 2px;
+  font-weight: bold;
+  background: linear-gradient(to top, #3edd1e, #1f9b07);
+  color: rgb(72, 59, 134);
+  padding: 3px 10px;
+}
+
+.topText {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.headerlogo {
+  cursor: pointer;
+}
+
+.linkText {
+  color: #000b6d;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/*-----------bootstrapオーバーライド-----------*/
+
+.row {
+  margin: 0;
+}

@@ -1,0 +1,16 @@
+#mysqlインストール
+mariaDBが入っていたら消す
+yum remove -y mariadb-libs mariadb-common mariadb-config
+
+yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+yum install -y mysql-community-client
+
+#Cassandraインストール
+echo "[cassandra]" >> /etc/yum.repos.d/cassandra.repo
+echo "name=Apache Cassandra" >> /etc/yum.repos.d/nginx.repo
+echo "baseurl=https://www.apache.org/dist/cassandra/redhat/311x/" >> /etc/yum.repos.d/cassandra.repo
+echo "gpgcheck=1" >> /etc/yum.repos.d/cassandra.repo
+echo "repo_gpgcheck=1" >> /etc/yum.repos.d/cassandra.repo
+echo "gpgkey=https://www.apache.org/dist/cassandra/KEYS" >> /etc/yum.repos.d/cassandra.repo
+
+yum -y install cassandra

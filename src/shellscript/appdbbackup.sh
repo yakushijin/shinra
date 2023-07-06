@@ -1,0 +1,60 @@
+#!/bin/bash
+
+#設定ファイル読み込み
+source ./dbbackup.conf
+
+#ログディレクトリ作成
+mkdir -p $backup_save_dir
+mkdir -p $backup_log_dir
+
+#ログファイル名
+log=appdbbackup_`date "+%Y%m%d"`.log
+
+#エラー判定関数定義
+#===============================================================================
+function ErroHandler () {
+	code=$1
+	if [ $code -ne 0 ]; then
+		echo "erorr ${code}" >> ${backup_log_dir}/${log}
+		exit 1
+	fi
+}
+#===============================================================================
+
+echo `date "+%Y%m%d %H:%M:%S"`" start_backup" >> ${backup_log_dir}/${log}
+
+#バックアップローテーション_作成
+#===============================================================================
+echo "rotation_create_appbk" >> ${backup_log_dir}/${log}
+file_existence=`find ${backup_save_dir}/ -name 'appbk.dump' | wc -l`
+if [ $file_existence -ne 0 ]; then
+	cd ${backup_save_dir}
+	tar zcvfS ${backup_save_dir}/`date "+%Y%m%d%H"`_appbk.dump.tar.gz appbk.dump --warning=no-file-changed >> ${backup_log_dir}/${log}
+	ErroHandler $?
+else
+	echo "There is no rotation_create_appbk" >> ${backup_log_dir}/${log}
+fi
+
+#===============================================================================
+
+#バックアップローテーション_削除
+#===============================================================================
+echo `date "+%Y%m%d %H:%M:%S"`" rotation_delete_appbk" >> ${backup_log_dir}/${log}
+find ${backup_save_dir}/ -name '*'_appbk.dump.tar.gz'*' -daystart -mtime +${app_backup_save_day} -exec rm -fv {} \; >> ${backup_log_dir}/${log}
+ErroHandler $?
+
+#===============================================================================
+
+#バックアップ実施
+#===============================================================================
+echo `date "+%Y%m%d %H:%M:%S"`" backup_appbk" >> ${backup_log_dir}/${log}
+mysqldump -u root -p${root_db_pass} A_ServiceMaster --single-transaction > ${backup_save_dir}/appbk.dump
+ErroHandler $?
+echo `date "+%Y%m%d %H:%M:%S"`" backup_appbk_ok" >> ${backup_log_dir}/${log}
+#===============================================================================
+
+#ログファイルローテーション_削除
+find ${backup_log_dir}/ -name dbbackup_'*'.log  -mtime +${backup_save_log_day} -exec rm -fv {} \; >> ${backup_log_dir}/${log}
+
+echo `date "+%Y%m%d %H:%M:%S"`" end_backup" >> ${backup_log_dir}/${log}
+

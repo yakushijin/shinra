@@ -1,0 +1,13 @@
+#IP
+serverip=192.168.1.207
+gatewayip=192.168.1.1
+#nic
+nic=eth0
+#OSホスト名
+hosname=stg-web-shinrawork.com
+#sshポート
+sshport=51207
+#サーバ名
+wwwname=web-shinrawork.com
+#webサーバディレクトリ名
+wwwhome=laravel

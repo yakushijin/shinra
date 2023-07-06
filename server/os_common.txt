@@ -1,0 +1,29 @@
+#リポジトリアップデート
+yum -y update && yum clean all
+
+#hostname変更
+echo "$hostname" > /etc/hostname
+
+#SElinux無効化
+sed -i "s/\(^SELINUX=\).*/\1disabled/" /etc/selinux/config
+
+#ネットワーク関連ツールインストール
+yum install -y net-tools dstat telnet traceroute tcpdump wget
+
+#ファイルディスクリプタ変更
+echo "* soft nofile 65536" >> /etc/security/limits.conf
+echo "* hard nofile 65536" >> /etc/security/limits.conf
+
+#カーネルパラメータ変更
+echo "vm.swappiness = 10" >> /etc/sysctl.conf
+echo "net.core.somaxconn = 1024" >> /etc/sysctl.conf
+
+#history設定変更
+sed -i -e "s/HISTSIZE=1000/#HISTSIZE=1000/g" /etc/profile
+sed -i -e "/#HISTSIZE=1000/a HISTSIZE=10000" /etc/profile
+echo "HISTTIMEFORMAT='%F %T '" >> /etc/profile
+echo "unset HISTCONTROL" >> /etc/profile
+echo "export HISTSIZE HISTTIMEFORMAT" >> /etc/profile
+
+#ssh設定変更
+sed -i -e "/#Port 22/a Port $sshport"  /etc/ssh/sshd_config

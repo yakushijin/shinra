@@ -1,0 +1,13 @@
+#IP
+serverip=
+gatewayip=
+#nic
+nic=eth0
+#OSホスト名
+hosname=shinra.yakusys.com
+#sshポート
+sshport=22
+#サーバ名
+wwwname=shinra.yakusys.com
+#webサーバディレクトリ名
+wwwhome=laravel

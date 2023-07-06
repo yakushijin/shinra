@@ -1,0 +1,46 @@
+/*-----------ヘッダー関連-----------*/
+
+.header {
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 2px 2px 3px rgb(153, 153, 153);
+}
+
+.headertext {
+    height: 40px;
+    margin:1px;
+}
+
+.headerlogo {
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.headerButtonArea{
+    margin:2px 8px 0 0;
+}
+
+.headerUserName {
+    float: right;
+    font-weight: bold;
+    color: rgb(201, 197, 223);
+    margin: 1px;
+    cursor: pointer;
+    background: linear-gradient(to bottom, rgb(87, 45, 165), rgb(34, 9, 80));
+    box-shadow: 0px 0px 2px gray;
+    border-radius: 2px;
+    padding:0 4px;
+}
+
+.headerUserName:hover {
+    box-shadow: 0px 0px 4px rgb(0, 0, 0);
+}
+
+/*-----------bootstrapオーバーライド-----------*/
+.headerArea .col-md-8 {
+    padding: 0 10px;
+}
+
+.headerArea .col-md-4 {
+    padding: 0 10px;
+}

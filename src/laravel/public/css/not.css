@@ -1,0 +1,27 @@
+html {
+    height: 100%;
+  }
+
+body {
+    background: #fafafa;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+.messageArea {
+    width: 80%;
+    text-align: center;
+    background-color: #dfe0ee;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.message {
+    color: #303251;
+    padding: 10px;
+    margin: 10px;
+}

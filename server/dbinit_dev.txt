@@ -1,0 +1,5 @@
+#webサーバで以下を実行する
+マイグレーション
+cd /var/www/laravel
+composer dump-autoload
+php artisan migrate

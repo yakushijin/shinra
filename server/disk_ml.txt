@@ -1,0 +1,17 @@
+・パーティション作成
+fdisk /dev/sdb
+n
+p
+1
+Enter押下
+Enter押下
+w
+
+・ファイルシステム作成
+mkfs.xfs /dev/sdb1
+
+・マウント設定
+mkdir /var/lib/cassandra
+chown cassandra:cassandra /var/lib/cassandra
+mount /dev/sdb1 /var/lib/cassandra
+echo "/dev/sdb1            /var/lib/cassandra             xfs     defaults        0 0" >> /etc/fstab

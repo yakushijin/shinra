@@ -1,0 +1,52 @@
+#リポジトリ準備
+yum install -y epel-release
+yum -y install http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+
+sed -i "/remi\/mirror/a enabled=1" /etc/yum.repos.d/remi.repo
+sed -i '/enabled=1/{n;d;}' /etc/yum.repos.d/remi.repo
+
+sed -i "/php73\/mirror/a enabled=1" /etc/yum.repos.d/remi-php73.repo
+sed -i '/enabled=1/{n;d;}' /etc/yum.repos.d/remi-php73.repo
+
+#php関連パッケージインストール
+yum install -y php73-php-fpm php73-php-mysqlnd php-mysql php73-php-pecl-zip php73-php php73-php-devel php73-php-mbstring php73-php-pdo php73-php-gd php73-php-xml php73-php-mcrypt php73-php-opcache
+
+#パス設定
+phppath="export PATH=/opt/remi/php73/root/usr/bin:/opt/remi/php73/root/usr/sbin\${PATH:+:\${PATH}}\nexport LD_LIBRARY_PATH=/opt/remi/php73/root/usr/lib64\${LD_LIBRARY_PATH:+:\${LD_LIBRARY_PATH}}\nexport MANPATH=/opt/remi/php73/root/usr/share/man:\${MANPATH}"
+sed -i -e "/User specific environment and startup program/a ${phppath}" /root/.bash_profile
+
+#自動起動
+systemctl enable php73-php-fpm.service
+
+#conf設定
+sed -i "s/user = apache/user = nginx/" /etc/opt/remi/php73/php-fpm.d/www.conf
+sed -i "s/group = apache/group = nginx/" /etc/opt/remi/php73/php-fpm.d/www.conf
+
+sed -i "s/pm.max_children = 50/pm.max_children = 200/" /etc/opt/remi/php73/php-fpm.d/www.conf
+sed -i "s/pm.start_servers = 5/pm.start_servers = 50/" /etc/opt/remi/php73/php-fpm.d/www.conf
+sed -i "s/pm.min_spare_servers = 5/pm.min_spare_servers = 20/" /etc/opt/remi/php73/php-fpm.d/www.conf
+sed -i "s/pm.max_spare_servers = 35/pm.max_spare_servers = 100/" /etc/opt/remi/php73/php-fpm.d/www.conf
+echo "listen.backlog = -1" >> /etc/opt/remi/php73/php-fpm.d/www.conf
+
+sed -i "s/expose_php = On/expose_php = Off/" /etc/opt/remi/php73/php.ini
+sed -i "s/ememory_limit = 128M/memory_limit = 1024M/" /etc/opt/remi/php73/php.ini
+sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 128M/" /etc/opt/remi/php73/php.ini
+sed -i "s/post_max_size = 8M/post_max_size = 128M/" /etc/opt/remi/php73/php.ini
+
+#ソケット通信用設定
+mkdir /var/run/php-fpm/
+echo "d /var/run/php-fpm 0755 nginx nginx -" > /usr/lib/tmpfiles.d/php-fpm.conf 
+sed -i "s/listen = 127.0.0.1:9000/listen = \/var\/run\/php-fpm\/php-fpm.sock/g" /etc/opt/remi/php73/php-fpm.d/www.conf
+sed -i "s/;listen.owner = nobody/listen.owner = nginx/g" /etc/opt/remi/php73/php-fpm.d/www.conf
+sed -i "s/;listen.group = nobody/listen.group = nginx/g" /etc/opt/remi/php73/php-fpm.d/www.conf
+sed -i "s/;listen.mode = 066/listen.mode = 066/g" /etc/opt/remi/php73/php-fpm.d/www.conf
+
+#laravel設定
+ln -s /usr/bin/php73 /usr/bin/php
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+
+
+#fpm再起動
+systemctl restart php73-php-fpm

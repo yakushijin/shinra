@@ -1,0 +1,93 @@
+■centos7の仮想マシン上に開発環境作成
+任意のターミナルソフトから以下を実行していく
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＜①vagrant準備＞＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+cd ~/
+mkdir git
+cd git
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+●既存のリポジトリから環境作成の場合
+git init
+git config --global http.sslVerify false
+git config --global core.autocrlf false
+git remote add origin https://192.168.1.202/yakushijin/HSHT.git
+git fetch origin master
+git reset --hard origin/master
+
+#phpソースのみ一旦削除する
+rm -fR src/laravel
+cp -p my.conf src/
+
+#設定ファイルを読み込む
+source my.conf
+-----------------------------------------------------------
+●新規作成の場合
+my.confファイルを作成する
+vi my.conf
+===========================
+#プロジェクトフォルダ名
+pjdirname=devKanriWeb
+#仮想マシンに設定するIP
+laravelip=192.168.10.80
+#仮想マシンに設定するメモリ
+vmmem=8196
+#OSホスト名
+hosname=devlaravel.com
+#webサーバ名
+wwwname=devlaravel.com
+#webサーバディレクトリ名
+wwwhome=laravel
+===========================
+#読み込む
+source my.conf
+
+mkdir $pjdirname
+cd $pjdirname
+
+#srcディレクトリ作成
+mkdir src
+cp -p ../my.conf src/
+
+#vagrant初期設定
+vagrant init centos/7
+
+#仮想マシン定義ファイルのテンプレートを新規作成する
+vi Vagrantfile_sample
+===========================
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+
+  config.vm.network "private_network",ip:"laravelip"
+  
+  config.vm.synced_folder "./", "/vagrant", type: "virtualbox"
+  config.vm.synced_folder "~/git/pjdirname/src","/var/www", type: "virtualbox"
+    
+  config.vm.provider "virtualbox" do |vb| 
+    vb.gui = false
+    vb.memory = "vmmem"
+    vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/~/git/pjdirname/src", "1"]
+  end
+end
+===========================
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+#vagrant初期設定
+vagrant init centos/7
+cp -pf Vagrantfile_sample Vagrantfile
+
+#環境設定適用
+sed -i "s/pjdirname/$pjdirname/g" Vagrantfile
+sed -i "s/laravelip/$laravelip/g" Vagrantfile
+sed -i "s/vmmem/$vmmem/g" Vagrantfile
+
+#ディレクトリ共有プラグインを入れる
+vagrant plugin install vagrant-vbguest
+
+#仮想マシン起動
+vagrant up
+
+#仮想マシンに接続
+vagrant ssh
+
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＜/①vagrant準備＞＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝

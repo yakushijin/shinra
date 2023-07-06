@@ -1,0 +1,31 @@
+・空ボリューム追加
+qemu-img create -f qcow2 /var/lib/libvirt/images/kvm0/centos7_db_shinrawork_dbvol.qcow2 10G
+qemu-img create -f qcow2 /var/lib/libvirt/images/kvm0/centos7_db_shinrawork_bkvol.qcow2 10G
+
+・アタッチ
+virsh edit centos7_db_shinrawork
+
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='qcow2'/>
+      <source file='/var/lib/libvirt/images/kvm0/centos7_db_shinrawork_dbvol.qcow2'/>
+      <target dev='vdb' bus='virtio'/>
+    </disk>
+    
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='qcow2'/>
+      <source file='/var/lib/libvirt/images/kvm0/centos7_db_shinrawork_bkvol.qcow2'/>
+      <target dev='vdc' bus='virtio'/>
+    </disk>
+    
+・パーティション、ファイルシステム作成しfstab設定する
+fdisk /dev/vdb
+fdisk /dev/vdc
+
+mkfs.xfs /dev/vdb1
+mkfs.xfs /dev/vdc1
+
+echo "/dev/vdb1            /var/lib/mysql             xfs     defaults        0 0" >> /etc/fstab
+echo "/dev/vdc1            /var/data01/backup             xfs     defaults        0 0" >> /etc/fstab
+
+
+mkdir -p /var/data01/backup/

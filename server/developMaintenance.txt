@@ -1,0 +1,105 @@
+
+windows10とvagrantの組み合わせでvagrantの共有フォルダ機能を使用すると、
+windowsのセキュリティポリシーに引っ掛かりシンボリックリンクが張れなくなり、
+laravelのフレームワーク内のソースに影響が出るため、以下の処理を初回に実施する
+
+#vagrant共有フォルダ設定
+管理者権限でパワーシェルを開き以下を実行
+fsutil behavior set SymlinkEvaluation L2L:1 R2R:1 L2R:1 R2L:1
+
+管理者権限でgitbashを開く
+一度vmを落とす
+vagrant halt
+
+#仮想マシン起動
+vagrant up
+
+#仮想マシンに接続
+vagrant ssh
+
+#rootユーザに切り替え
+sudo su -
+
+#環境変数設定
+source /var/www/my.conf
+
+#laravelソースダウンロード、設置
+composer create-project laravel/laravel --prefer-dist /tmp/$wwwhome "5.5.*" 
+mv /tmp/$wwwhome /var/www/
+
+
+
+フレームワークの一部を変更する
+vendor\laravel\framework\src\Illuminate\Foundation\Auth\RegistersUsers.php
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#変更前
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+#変更後
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $req = $request->all();
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath())->with('email', $req["email"]);
+    }
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
+#git作業
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+●既存のリポジトリから環境作成の場合
+cd ~/git/$pjdirname
+git reset --hard origin/master
+rm -f src/laravel/app/User.php
+----------------------------------------------------
+●新規作成の場合
+cd ~/git/$pjdirname
+git init
+git config --global http.sslVerify false
+git config --global core.autocrlf false
+git remote add origin https://192.168.1.202/yakushijin/HSHT.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+
+■デバッグ設定
+webサーバで実施
+#デバッグ設定
+yum install -y php73-php-pecl-xdebug
+
+echo "zend_extension=xdebug.so" >> /etc/opt/remi/php73/php.ini
+echo "xdebug.remote_enable=1" >> /etc/opt/remi/php73/php.ini
+echo "xdebug.remote_host=localhost" >> /etc/opt/remi/php73/php.ini
+echo "xdebug.remote_autostart=on" >> /etc/opt/remi/php73/php.ini
+echo "xdebug.remote_connect_back=on" >> /etc/opt/remi/php73/php.ini
+echo "xdebug.remote_handler=dbgp" >> /etc/opt/remi/php73/php.ini
+echo "xdebug.remote_port=9000" >> /etc/opt/remi/php73/php.ini
+
+
+
+
+vscodeを開き、環境変数「$wwwhome」で指定したフォルダをワークスペースに追加する
+※今回の例ではlaravel
+
+メニュー左にある実行とデバッグのメニューをクリックし、以下を追加する
+※configurationsの第一要素の中の「"port": 9000」の下。
+追加後「"port": 9000」の末尾に「,」を付けるのを忘れずに。
+
+"pathMappings": { "/var/www/laravel": "${workspaceRoot}" }

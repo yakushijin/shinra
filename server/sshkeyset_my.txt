@@ -1,0 +1,8 @@
+indigoの初期ユーザの鍵ファイルをrootにコピーする
+mkdir /root/.ssh/
+cp -p /home/centos/.ssh/authorized_keys /root/.ssh/
+chown root:root /root/.ssh/authorized_keys
+
+sed -i -e 's/PermitRootLogin no/#PermitRootLogin no/' /etc/ssh/sshd_config
+
+systemctl restart sshd

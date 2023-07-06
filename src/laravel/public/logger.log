@@ -1,0 +1,1345 @@
+INFO:root:info test test
+putted
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139908592908216) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139908592908216) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139908592908216) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139908592908216) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139908592908216) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139908592908216) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139908592908216) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139908592908216) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139908592908216) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139908592908216) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139908592908216) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139908592908216) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139908592909840) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (139908592909840) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139908592909840) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139908592909840) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139908592909840) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 3837677d-11d7-4e81-9ec0-7d8e51b8950d and session_id da26b953-312c-440f-9e27-5a0e27e08f5d
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (139908592908216) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (139908592909840) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140587415669112) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140587415669112) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140587415669112) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140587415669112) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140587415669112) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140587415669112) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140587415669112) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140587415669112) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140587415669112) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140587415669112) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140587415669112) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140587415669112) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140587415669056) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140587415669056) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140587415669056) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140587415669056) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140587415669056) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id e83fd592-240c-472b-ba19-c72f0b124d29 and session_id cb3cbdff-7ccb-4b2a-851b-c2305eb05744
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140587415669112) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140587415669056) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140362615728224) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140362615728224) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140362615728224) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140362615728224) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140362615728224) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140362615728224) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140362615728224) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140362615728224) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140362615728224) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140362615728224) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140362615728224) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140362615728224) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140362615730072) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140362615730072) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140362615730072) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140362615730072) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140362615730072) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 9e40467e-adf4-4d2e-b3a0-64fc45a765fa and session_id 923ebebf-1582-4119-a90e-dca55665dfab
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140362615728224) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140362615730072) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140423174240632) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140423174240632) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140423174240632) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140423174240632) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140423174240632) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140423174240632) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140423174240632) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140423174240632) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140423174240632) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140423174240632) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140423174240632) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140423174240632) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140423174240576) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140423174240576) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140423174240576) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140423174240576) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140423174240576) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 887a11e7-1bc1-46e1-a25d-45176c740d8c and session_id 18f3f773-5bf8-43d5-998a-a6e447a565a0
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140423174240632) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140423174240576) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140033928214624) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140033928214624) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140033928214624) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140033928214624) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140033928214624) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140033928214624) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140033928214624) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140033928214624) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140033928214624) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140033928214624) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140033928214624) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140033928214624) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140033928216472) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140033928216472) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140033928216472) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140033928216472) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140033928216472) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id c5c616e8-62e1-41bb-86cc-cc42a0cc5a43 and session_id 6ff599de-49d4-4909-85f5-820ce17f46c8
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140033928214624) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140033928216472) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140308975048800) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140308975048800) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140308975048800) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140308975048800) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140308975048800) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140308975048800) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140308975048800) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140308975048800) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140308975048800) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140308975048800) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140308975048800) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140308975048800) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140308975050648) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140308975050648) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140308975050648) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140308975050648) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140308975050648) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id b842619b-817e-494c-b0e5-acb96a440e2c and session_id 1cd45ea1-5ef5-4104-951e-29dac7c57d8e
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140308975048800) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140308975050648) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140010351020016) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140010351020016) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140010351020016) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140010351020016) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140010351020016) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140010351020016) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140010351020016) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140010351020016) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140010351020016) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140010351020016) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140010351020016) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140010351020016) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140010351022032) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140010351022032) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140010351022032) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140010351022032) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140010351022032) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id b82c878c-f3b8-4e54-a410-df2a65df682a and session_id 69b54c2b-2190-40b4-ad84-0598e1c7052a
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140010351020016) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140010351022032) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140617322027104) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140617322027104) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140617322027104) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140617322027104) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140617322027104) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140617322027104) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140617322027104) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140617322027104) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140617322027104) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140617322027104) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140617322027104) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140617322027104) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140617322028952) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140617322028952) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140617322028952) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140617322028952) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140617322028952) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 54e3fbf0-e26f-499a-b823-d2188e68ca6f and session_id 7cc1bb4d-b6f9-432c-b9ef-75136ed9c508
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140617322027104) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140617322028952) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139713522440288) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139713522440288) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139713522440288) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139713522440288) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139713522440288) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139713522440288) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139713522440288) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139713522440288) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139713522440288) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139713522440288) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139713522440288) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139713522440288) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139713522442136) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (139713522442136) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139713522442136) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139713522442136) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139713522442136) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 29010421-eef1-404e-ba4a-27de8e4a91bf and session_id 9b01354a-d4e9-4c94-b889-d48cdc6d2434
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (139713522440288) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (139713522442136) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140623678130048) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140623678130048) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140623678130048) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140623678130048) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140623678130048) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140623678130048) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140623678130048) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140623678130048) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140623678130048) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140623678130048) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140623678130048) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140623678130048) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140623678132064) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140623678132064) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140623678132064) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140623678132064) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140623678132064) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 70abe10c-63bb-441d-a0f9-913a351d9da4 and session_id 031c00bf-7e20-4fa4-970f-e74a1fd85a23
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140623678130048) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140623678132064) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140687610886128) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140687610886128) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140687610886128) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140687610886128) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140687610886128) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140687610886128) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140687610886128) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140687610886128) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140687610886128) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140687610886128) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140687610886128) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140687610886128) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140687610887752) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140687610887752) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140687610887752) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140687610887752) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140687610887752) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id a2d43cda-e918-4a01-b206-f6ffebea5e7a and session_id 2f57acea-be59-49cc-80eb-792ff871977a
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140687610886128) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140687610887752) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140560503113880) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140560503113880) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140560503113880) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140560503113880) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140560503113880) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140560503113880) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140560503113880) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140560503113880) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140560503113880) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140560503113880) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140560503113880) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140560503113880) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140560503115672) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140560503115672) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140560503115672) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140560503115672) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140560503115672) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 908c485b-7002-4f59-aff1-8ec68025b8b3 and session_id f7a47bd0-6327-45ea-a7ac-80e62adf5a2a
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140560503113880) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140560503115672) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139993358399472) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139993358399472) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139993358399472) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139993358399472) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139993358399472) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139993358399472) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139993358399472) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139993358399472) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139993358399472) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139993358399472) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139993358399472) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139993358399472) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139993358401096) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (139993358401096) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139993358401096) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139993358401096) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139993358401096) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id be8cc927-0f87-49f1-a561-de5db7488dc2 and session_id 078d81e3-081b-4d5e-af3e-4a23efd30f9a
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (139993358399472) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (139993358401096) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139908513101920) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139908513101920) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139908513101920) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139908513101920) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139908513101920) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139908513101920) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139908513101920) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139908513101920) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139908513101920) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139908513101920) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139908513101920) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139908513101920) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139908513103768) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (139908513103768) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139908513103768) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139908513103768) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139908513103768) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 082b5eb1-5f7f-42d3-bbda-2271b3e5fa50 and session_id 9a8af6bd-377f-48dd-a2f3-7f2690b0c192
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (139908513101920) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (139908513103768) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140463057422488) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140463057422488) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140463057422488) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140463057422488) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140463057422488) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140463057422488) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140463057422488) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140463057422488) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140463057422488) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140463057422488) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140463057422488) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140463057422488) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140463057424280) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140463057424280) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140463057424280) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140463057424280) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140463057424280) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 339256c7-8474-4062-a203-220496180fe8 and session_id d62c313a-d78d-4023-a2c1-3af0fb9efb1c
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140463057422488) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140463057424280) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140222069864040) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140222069864040) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140222069864040) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140222069864040) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140222069864040) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140222069864040) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140222069864040) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140222069864040) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140222069864040) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140222069864040) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140222069864040) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140222069864040) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140222069865888) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140222069865888) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140222069865888) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140222069865888) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140222069865888) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 93412c32-240a-4718-ab9e-653648d62127 and session_id ae34ebe6-d2c0-4ca6-b42b-9aeb78275336
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140222069864040) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140222069865888) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139649943082600) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139649943082600) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139649943082600) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139649943082600) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139649943082600) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139649943082600) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139649943082600) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139649943082600) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139649943082600) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139649943082600) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139649943082600) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139649943082600) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139649943084448) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (139649943084448) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139649943084448) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139649943084448) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139649943084448) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id fad69d8e-f569-46f3-84a4-7fdc3c4397fa and session_id 03088e10-d185-4ff6-9bc8-dc076314eb23
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (139649943082600) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (139649943084448) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139801881773560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139801881773560) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139801881773560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139801881773560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139801881773560) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139801881773560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139801881773560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139801881773560) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139801881773560) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139801881773560) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139801881773560) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139801881773560) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139801881775912) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (139801881775912) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139801881775912) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139801881775912) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139801881775912) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 81249302-d12e-4ecb-9511-ed92a2e2311a and session_id 7f34db9a-da83-4a9c-b73d-b1ab4ed545a2
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (139801881773560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (139801881775912) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139712938096008) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139712938096008) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139712938096008) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139712938096008) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (139712938096008) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (139712938096008) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (139712938096008) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139712938096008) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139712938096008) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139712938096008) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139712938096008) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139712938096008) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139712938097800) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (139712938097800) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139712938097800) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139712938097800) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139712938097800) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 3d09d8be-087c-4e95-aa41-28967630de51 and session_id c39faa2a-bd77-4349-ad67-3235b760dc39
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (139712938096008) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (139712938097800) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140350237197816) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140350237197816) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140350237197816) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140350237197816) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140350237197816) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140350237197816) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140350237197816) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140350237197816) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140350237197816) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140350237197816) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140350237197816) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140350237197816) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140350237200168) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140350237200168) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140350237200168) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140350237200168) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140350237200168) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id e8df042b-5577-47f6-9497-5317b07842f6 and session_id b7471c2a-e21a-4c9f-a951-4d19c2a8e5e9
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140350237197816) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140350237200168) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140442128160360) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140442128160360) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140442128160360) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140442128160360) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140442128160360) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140442128160360) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140442128160360) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140442128160360) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140442128160360) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140442128160360) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140442128160360) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140442128160360) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140442128162208) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140442128162208) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140442128162208) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140442128162208) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140442128162208) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 1b659278-e5b5-4c53-aaf0-7f406f48eb94 and session_id 0abf6399-8d53-4e48-8d3a-6ec32965a632
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140442128160360) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140442128162208) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140617152063640) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140617152063640) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140617152063640) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140617152063640) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140617152063640) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140617152063640) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140617152063640) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140617152063640) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140617152063640) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140617152063640) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140617152063640) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140617152063640) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140617152065432) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140617152065432) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140617152065432) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140617152065432) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140617152065432) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id 4dd0b2de-6bda-4f7b-b1af-73447928da80 and session_id 489e7983-9784-4237-9c9b-79c6690bd4bc
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140617152063640) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140617152065432) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['localhost'], lbp = None)
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['localhost']; protocol version: 66
+DEBUG:cassandra.pool:Host ::1:9042 is now marked up
+DEBUG:cassandra.pool:Host 127.0.0.1:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to ::1:9042
+WARNING:cassandra.cluster:[control connection] Error connecting to ::1:9042:
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3504, in cassandra.cluster.ControlConnection._reconnect_internal
+  File "cassandra/cluster.py", line 3526, in cassandra.cluster.ControlConnection._try_connect
+  File "cassandra/cluster.py", line 1613, in cassandra.cluster.Cluster.connection_factory
+  File "cassandra/connection.py", line 758, in cassandra.connection.Connection.factory
+  File "/usr/local/lib64/python3.6/site-packages/cassandra/io/libevreactor.py", line 267, in __init__
+    self._connect_socket()
+  File "cassandra/connection.py", line 825, in cassandra.connection.Connection._connect_socket
+ConnectionRefusedError: [Errno 111] Tried connecting to [('::1', 9042, 0, 0)]. Last error: Connection refused
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140075196848560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140075196848560) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (66); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140075196848560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 66 to 65 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140075196848560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Defuncting connection (140075196848560) to 127.0.0.1:9042: <Error from server: code=000a [Protocol error] message="Invalid or unsupported protocol version (65); supported versions are (3/v3, 4/v4, 5/v5-beta)">
+DEBUG:cassandra.io.libevreactor:Closing connection (140075196848560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Downgrading core protocol version from 65 to 4 for 127.0.0.1:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+DEBUG:cassandra.connection:Sending initial options message for new connection (140075196848560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140075196848560) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140075196848560) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140075196848560) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140075196848560) from 127.0.0.1:9042
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140075196848560) 127.0.0.1:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '127.0.0.1:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Removing host not found in peers metadata: <Host: ::1:9042>
+INFO:cassandra.cluster:Cassandra host ::1:9042 removed
+DEBUG:cassandra.cluster:Removing host ::1:9042
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140075196848504) to 127.0.0.1:9042
+DEBUG:cassandra.connection:Received options response on new connection (140075196848504) from 127.0.0.1:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140075196848504) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140075196848504) 127.0.0.1:9042>
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140075196848504) from 127.0.0.1:9042
+DEBUG:cassandra.pool:Finished initializing connection for host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Added pool for host 127.0.0.1:9042 to session
+DEBUG:cassandra.cluster:Not starting MonitorReporter thread for Insights; not supported by server version 3.11.6 on ControlConnection host 127.0.0.1:9042
+DEBUG:cassandra.cluster:Started Session with client_id a69b3e7c-c63d-420e-ac43-f85537066589 and session_id 81af032f-03de-480a-8cc8-ffb590db877c
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.io.libevreactor:Closing connection (140075196848560) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140075196848504) to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 127.0.0.1:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+INFO:root:erroroutputting error
+INFO:root:warning was outputted
+INFO:root:info test test

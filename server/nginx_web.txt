@@ -1,0 +1,47 @@
+##インストール
+echo "[nginx]" >> /etc/yum.repos.d/nginx.repo
+echo "name=nginx repo" >> /etc/yum.repos.d/nginx.repo
+echo "baseurl=http://nginx.org/packages/centos/7/\$basearch/" >> /etc/yum.repos.d/nginx.repo
+echo "gpgcheck=0" >> /etc/yum.repos.d/nginx.repo
+echo "enabled=1" >> /etc/yum.repos.d/nginx.repo
+
+yum install -y nginx
+
+#自動起動
+systemctl enable nginx.service
+
+
+##conf設定
+vi /etc/nginx/conf.d/$wwwname.conf
+
+ server {
+        listen 8080;
+        server_name localhost;
+        client_max_body_size 128M;
+        index index.php ;
+        root /var/www/wwwhome/public;
+        etag off;
+        try_files $uri $uri/ /index.php?q=$uri&$args;
+
+        location / {
+           root   /var/www/wwwhome/public;
+           index  index.html index.htm index.php;
+           try_files $uri $uri/ /index.php?$args;
+        }
+
+        location ~ \.php$ {
+                try_files $uri /index.php =404;
+                fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+                include fastcgi_params;
+        }
+    }
+
+
+#環境設定適用
+sed -i "s/server_name localhost;/server_name $wwwname;/g" /etc/nginx/conf.d/$wwwname.conf 
+sed -i "s/wwwhome/$wwwhome/g" /etc/nginx/conf.d/$wwwname.conf 
+
+#nginx再起動
+systemctl restart nginx

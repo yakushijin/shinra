@@ -1,0 +1,10 @@
+#IP
+serverip=10.128.0.3
+#nic
+nic=eth0
+#OSホスト名
+hosname=web_shinrawork.com
+#webサーバ名
+wwwname=shinrawork.com
+#webサーバディレクトリ名
+wwwhome=laravel

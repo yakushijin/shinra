@@ -1,0 +1,4 @@
+mkdir /var/log/bat
+
+crontab -e
+*/30 * * * * /var/www/python/batexe.sh

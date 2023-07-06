@@ -1,0 +1,62 @@
+mariaDBが入っていたら消す
+yum remove -y mariadb-libs mariadb-common mariadb-config
+
+gcc入ってなかったら入れる
+yum install -y gcc
+
+#インストール
+yum install -y https://centos7.iuscommunity.org/ius-release.rpm
+※↑失敗したらこれを試す
+yum -y install https://repo.ius.io/ius-release-el7.rpm
+
+yum install -y python36u python36u-libs python36u-devel python36u-pip 
+
+yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+yum install -y mysql-community-devel
+
+※以下はやりがちだが絶対に実行しないこと。（cassandraクライアントはpython2.7を使用する為）
+#ln -s /usr/bin/python3.6 /usr/local/bin/python
+#ln -s /usr/bin/pip3.6 /usr/local/bin/pip
+
+#pipアップデート
+pip3.6 install -U pip setuptools wheel
+
+#分析ライブラリインストール
+pip3.6 install pandas numpy Cython
+
+#ginzaインストール
+pip3.6 install -U ginza
+
+#ドライバインストール
+pip3.6 install cassandra-driver
+pip3.6 install mysqlclient
+
+
+#systemd登録
+vi /etc/systemd/system/python_server.service
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+[Unit]
+Description=python_server
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/python3.6  /var/www/python/main.py &
+Restart=always
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+
+systemctl daemon-reload
+
+※確認
+systemctl status python_server 
+systemctl start python_server
+systemctl stop python_server
+systemctl restart python_server
+
+自動起動
+systemctl enable python_server
+
+mkdir -p /var/www/python
+chmod 755 /var/www/python
+

@@ -1,0 +1,22 @@
+#Cassandraインストール
+echo "[cassandra]" >> /etc/yum.repos.d/cassandra.repo
+echo "name=Apache Cassandra" >> /etc/yum.repos.d/cassandra.repo
+echo "baseurl=https://www.apache.org/dist/cassandra/redhat/311x/" >> /etc/yum.repos.d/cassandra.repo
+echo "gpgcheck=1" >> /etc/yum.repos.d/cassandra.repo
+echo "repo_gpgcheck=1" >> /etc/yum.repos.d/cassandra.repo
+echo "gpgkey=https://www.apache.org/dist/cassandra/KEYS" >> /etc/yum.repos.d/cassandra.repo
+
+yum -y install cassandra
+
+#systemdダウングレード
+yum downgrade -y http://vault.centos.org/7.6.1810/updates/x86_64/Packages/systemd-219-62.el7_6.9.x86_64.rpm http://vault.centos.org/7.6.1810/updates/x86_64/Packages/systemd-libs-219-62.el7_6.9.x86_64.rpm http://vault.centos.org/7.6.1810/updates/x86_64/Packages/systemd-sysv-219-62.el7_6.9.x86_64.rpm
+systemctl daemon-reload
+
+echo "exclude=systemd*" >> /etc/yum.conf
+
+IP追加
+sed -i -e "s/rpc_address: localhost/rpc_address: $serverip/g" /etc/cassandra/default.conf/cassandra.yaml
+
+#cassandora起動、自動起動設定
+systemctl start cassandra
+systemctl enable cassandra

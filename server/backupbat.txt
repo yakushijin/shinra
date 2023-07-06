@@ -1,0 +1,19 @@
+ディレクトリ作成
+mkdir -p /opt/shellscript
+mkdir -p /var/data01/backup/
+
+confファイルとシェルを以下ディレクトリに置く
+/opt/shellscript
+
+dbbackup.conf内のrootのdbパスワードを入力する
+
+権限付与
+chmod 500 /opt/shellscript/dbbackup.sh
+chmod 500 /opt/shellscript/appdbbackup.sh
+chmod 400 /opt/shellscript/dbbackup.conf
+
+cronを設定する
+crontab -e
+
+0 1 * * * cd /opt/shellscript; ./dbbackup.sh
+30 */1 * * * cd /opt/shellscript; ./appdbbackup.sh

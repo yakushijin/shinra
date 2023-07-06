@@ -1,0 +1,50 @@
+
+mariaDBが入っていたら消す
+yum remove -y mariadb-libs mariadb101u-common mariadb101u-config
+
+
+#インストール
+yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+yum install -y mysql-community-server mysql-community-devel
+
+#mysql認証方法変更
+sed -i -e "/# default-authentication-plugin=mysql_native_password/a default-authentication-plugin=mysql_native_password" /etc/my.cnf
+
+#自動起動
+systemctl enable mysqld.service
+
+#conf設定
+echo "max_connections        = 100" >> /etc/my.cnf
+
+#起動
+systemctl start mysqld.service
+
+#rootパスワード変更
+grep password /var/log/mysqld.log
+
+→初期パスワードが表示
+
+mysql_secure_installation
+
+#初期パスワードでログイン、その後、新パスワードを設定。
+※新パスワードはenvファイルの「ROOT_DB_PASSWORD」を参照
+
+#mysqlにログイン
+mysql -u root -p
+
+※パスワードはenvファイルの「DB_PASSWORD」を参照
+
+#アプリケーションDB、ユーザ作成
+CREATE DATABASE A_ServiceMaster character set utf8 collate utf8_bin;
+
+CREATE USER A_ServiceMaster@localhost IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL ON A_ServiceMaster.* TO A_ServiceMaster@localhost;
+CREATE USER A_ServiceMaster@'192.168.1.%' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL ON A_ServiceMaster.* TO A_ServiceMaster@'192.168.1.%';
+
+CREATE USER root@'192.168.1.%' IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT ALL ON *.* TO root@'192.168.1.%' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+exit
+

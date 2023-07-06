@@ -1,0 +1,5 @@
+#IPê›íË
+nmcli connection modify $nic ipv4.addresses $serverip/24 ipv4.method manual
+nmcli connection modify $nic ipv4.gateway $gatewayip
+nmcli connection modify $nic ipv4.dns $gatewayip
+nmcli connection modify $nic connection.autoconnect yes

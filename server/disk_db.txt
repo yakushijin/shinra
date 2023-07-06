@@ -1,0 +1,17 @@
+・パーティション作成
+fdisk /dev/sdb
+n
+p
+1
+Enter押下
+Enter押下
+w
+
+・ファイルシステム作成
+mkfs.xfs /dev/sdb1
+
+・マウント設定
+mkdir /var/lib/mysql
+chown mysql:mysql /var/lib/mysql
+mount /dev/sdb1 /var/lib/mysql
+echo "/dev/sdb1            /var/lib/mysql             xfs     defaults        0 0" >> /etc/fstab

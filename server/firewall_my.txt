@@ -1,0 +1,6 @@
+yum install -y firewalld
+systemctl enable firewalld
+
+sed -i -e "/ssh/a <port protocol=\"tcp\" port=\"443\"/>"  /etc/firewalld/zones/public.xml
+sed -i -e "/ssh/a <port protocol=\"tcp\" port=\"80\"/>"  /etc/firewalld/zones/public.xml
+sed -i -e "/dhcpv6-client/d" /etc/firewalld/zones/public.xml

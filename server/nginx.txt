@@ -1,0 +1,112 @@
+##インストール
+echo "[nginx]" >> /etc/yum.repos.d/nginx.repo
+echo "name=nginx repo" >> /etc/yum.repos.d/nginx.repo
+echo "baseurl=http://nginx.org/packages/centos/7/\$basearch/" >> /etc/yum.repos.d/nginx.repo
+echo "gpgcheck=0" >> /etc/yum.repos.d/nginx.repo
+echo "enabled=1" >> /etc/yum.repos.d/nginx.repo
+
+yum install -y nginx
+
+#自動起動
+systemctl enable nginx.service
+
+#ssl設定※一旦オレオレ証明書を設定する
+mkdir -p /etc/nginx/ssl
+chmod 700 /etc/nginx/ssl
+cd /etc/nginx/ssl
+openssl genrsa -out cert.key 2048
+openssl req -subj '/CN=common_name.example.com/O=ORGANIZATION/C=JP' -new -key cert.key > cert.csr
+openssl x509 -in cert.csr -days 3650 -req -signkey cert.key > cert.crt
+
+
+
+##conf設定
+vi /etc/nginx/conf.d/$wwwname.conf
+================================
+server {
+    listen 80;
+    server_name localhost;
+    return 301 https://$host$request_uri;
+}
+
+ server {
+        listen 443;
+        ssl on;
+        ssl_certificate /etc/nginx/ssl/cert.crt;
+        ssl_certificate_key /etc/nginx/ssl/cert.key;
+        server_name localhost;
+        client_max_body_size 128M;
+        index index.php ;
+        root /var/www/wwwhome/public;
+        etag off;
+        try_files $uri $uri/ /index.php?q=$uri&$args;
+
+        location / {
+           root   /var/www/wwwhome/public;
+           index  index.html index.htm index.php;
+           try_files $uri $uri/ /index.php?$args;
+        }
+
+        location ~ \.php$ {
+                try_files $uri /index.php =404;
+                fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;
+                fastcgi_index index.php;
+                fastcgi_param SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+                include fastcgi_params;
+        }
+    }
+================================
+
+cp -p /etc/nginx/nginx.conf /etc/nginx/nginx.conf_old
+
+vi /etc/nginx/nginx.conf
+================================
+user  nginx;
+worker_processes auto;
+worker_rlimit_nofile 100000;
+
+error_log  /var/log/nginx/error.log warn;
+pid        /var/run/nginx.pid;
+
+events {
+        worker_connections 65535;
+        multi_accept on;
+        use epoll;
+}
+
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile        on;
+    #tcp_nopush     on;
+
+    keepalive_timeout  65;
+
+    #gzip  on;
+
+    server_tokens off;
+    add_header X-Frame-Options SAMEORIGIN;
+    add_header X-XSS-Protection "1; mode=block";
+    client_max_body_size 10K;
+
+    fastcgi_read_timeout 120;
+
+    include /etc/nginx/conf.d/*.conf;
+}
+================================
+
+#環境設定適用
+sed -i "s/server_name localhost;/server_name $wwwname;/g" /etc/nginx/conf.d/$wwwname.conf 
+sed -i "s/wwwhome/$wwwhome/g" /etc/nginx/conf.d/$wwwname.conf 
+
+#nginx再起動
+systemctl restart nginx
+

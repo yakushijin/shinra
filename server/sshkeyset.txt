@@ -1,0 +1,15 @@
+#クライアントPCにて作成※対話モードはすべてEnter押下
+ssh-keygen -t rsa
+#サーバへ公開鍵設置
+scp -P [サーバsshport] ~/.ssh/id_rsa.pub root@[サーバIP]:/root/
+
+
+#サーバ側で設定
+mkdir /root/.ssh/
+chmod 700 /root/.ssh/
+mv /root/id_rsa.pub /root/.ssh/
+mv /root/.ssh/id_rsa.pub /root/.ssh/authorized_keys
+
+sed -i -e "/#PasswordAuthentication yes/a PasswordAuthentication no"  /etc/ssh/sshd_config
+
+systemctl restart sshd

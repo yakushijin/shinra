@@ -1,0 +1,404 @@
+/*-----------ページ全体-----------*/
+
+body {
+    background: #f5f5f5;
+}
+
+.page {
+    width: 100%;
+    overflow: hidden;
+    font-family: Helvetica, "游ゴシック", sans-serif;
+}
+
+/*-----------タブ関連-----------*/
+
+.tabscroll {
+    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: auto;
+    margin: 0 12px;
+    margin-top: 10px;
+    padding-left: 8px;
+    cursor: pointer;
+}
+
+@media screen and (max-width:600px){
+    #tabscroll::-webkit-scrollbar {
+        height: 2px;
+    }
+    
+    #tabscroll::-webkit-scrollbar-track {
+        box-shadow: 0 0 4px #aaa inset;
+    }
+    
+    #tabscroll::-webkit-scrollbar-thumb {
+        background: radial-gradient(#1959A8, rgb(27, 214, 205));
+    }
+  }
+
+
+@media screen and (min-width:600px){
+    #tabscroll::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    #tabscroll::-webkit-scrollbar-track {
+        box-shadow: 0 0 4px #aaa inset;
+        border-radius: 10px 10px 0 0;
+    }
+
+    #tabscroll::-webkit-scrollbar-thumb {
+        background: radial-gradient(#1959A8, rgb(27, 214, 205));
+        border-radius: 10px 10px 0 0;
+    }
+  }
+
+.tabarea {
+    width: 1024px;
+    margin: 0 16px;
+}
+
+.tab {
+    width: 150px;
+    display: inline-block;
+    border: solid 1px #303251;
+    border-radius: 4px 4px 0 0;
+    height: 26px;
+    margin-top: 4px;
+    /* box-shadow: 0px -2px 4px rgb(22, 22, 22); */
+}
+
+ul#tablistarea > li{display:inline-block}
+
+.tabback {
+    background-color: #e7d1ec;
+    padding: 8px;
+    margin: 0 10px 10px 10px;
+    border-radius: 2px;
+    border: solid 1px #303251;
+    margin-top: -1px;
+    box-shadow: 0px 2px 8px rgb(92, 92, 92);
+}
+
+.tabtext {
+    display: inline-block;
+    height: 20px;
+    width: 120px;
+    border: none;
+    user-select: none;
+    cursor: pointer;
+    color: #000;
+    font-size: 16px;
+    vertical-align: middle;
+    margin: 1px;
+    padding: 0;
+}
+
+/*-----------カテゴリ関連-----------*/
+
+.category {
+    text-align: left;
+    color: #303251;
+}
+
+.categoryname {
+    width: 86%;
+    text-align: left;
+    color: #303251;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.categorystatusarea {
+    text-align: center;
+}
+
+/*-----------タスク関連-----------*/
+
+.taskname {
+    margin: 0;
+    padding: 0;
+    width: 90%;
+    text-align: left;
+    color: #303251;
+    border: none;
+}
+
+.taskcheckbox {
+    font-size: 30px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.taskremarks {
+    padding: 0;
+    width: 100%;
+    text-align: left;
+    color: #303251;
+    border: none;
+}
+
+/*-----------ボタン、アイコン関連-----------*/
+
+.addDeleteBotton {
+    border-radius: 50%;
+    display: inline-block;
+    color: #FFFFFF;
+    cursor: pointer;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .24);
+}
+
+.tabAdd {
+    position: absolute;
+    left: 10px;
+    padding: 0 5px;
+    background: radial-gradient( #165fdc, #5f8fd6);
+    font-weight: bold;
+    font-size: 14px;
+    margin-top:6px;
+}
+
+.tabGroup {
+    padding: 0 3px;
+    background: radial-gradient(#9cb9f0, #3243e0);
+    /* font-weight: bold; */
+    font-size: 11px;
+    margin: 0 2px;
+    vertical-align: middle;
+}
+
+.addDeleteBotton:hover {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+    color: rgb(27, 25, 2);
+}
+
+.categoryDelete {
+    padding: 0 6px;
+    margin-right: 12px;
+    background: radial-gradient(#f0b79c, #dc4416);
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.taskDelete {
+    margin-right: 20px;
+    padding: 0 5px;
+    background: radial-gradient(#e7c4b4, #cf6848);
+    font-size: 10px;
+}
+
+.userNameIcon {
+    display: inline-block;
+    color: #FFF;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .24);
+    vertical-align: top;
+    padding: 2px 3px;
+    font-weight: bold;
+    /* background: linear-gradient(to bottom, rgb(176, 206, 223), rgb(67, 108, 204)); */
+    font-size: 10px;
+    margin-top: 4px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.tabIcon {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: linear-gradient(to bottom, rgb(176, 223, 176), rgb(67, 204, 147));
+    margin: 0 4px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.categoryIcon {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background: linear-gradient(to bottom, rgb(176, 223, 176), rgb(67, 204, 147));
+    margin-right: 2px;
+    cursor: pointer;
+}
+
+.taskIcon {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background: linear-gradient(to bottom, rgb(195, 223, 195), rgb(116, 196, 162));
+    margin-left: 4px;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+.statusbutton {
+    display: inline-block;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+
+.category_st {
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 3px;
+}
+
+.task_st {
+    font-size: 13px;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-right: 4px;
+}
+
+.statusbutton:hover {
+    cursor: pointer;
+}
+
+.statusbutton:active {
+    -webkit-transform: translateY(1px);
+    transform: translateY(1px);
+    border-bottom: none ! important;
+}
+
+.button_notstarted {
+    background-color: #78bcd3;
+}
+
+.button_working {
+    background-color: #dfaa79;
+}
+
+.button_waiting {
+    background-color: #5cda50;
+}
+
+.button_done {
+    background-color: #471d18;
+}
+
+.accordion2 .inner {
+    display: none;
+}
+
+.accordion2 p {
+    cursor: pointer;
+}
+
+/*-----------テキスト関連-----------*/
+
+.textarea {
+    width: 100%;
+    border: none;
+    color: #303251;
+    margin: 2px;
+}
+
+.taskTextarea {
+    width: 95%;
+    border: none;
+    color: #303251;
+    margin-left: 10px;
+}
+
+.textback {
+    padding: 2px;
+    text-align: center;
+}
+
+.groupName {
+    color: #7886d3;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.statusSelectBox {
+    border-radius: 5px;
+    border: none;
+    font-size: 13px;
+    padding: 0px;
+    font-weight: bold;
+    /* background-color: rgb(221, 162, 162); */
+    text-align: center;
+    height: 20px;
+    -moz-appearance: menulist;
+    -webkit-appearance: menulist;
+}
+
+.dispDayTextBox {
+    padding: 0;
+    width: 86px;
+    text-align: center;
+    border: none;
+    height: 24px;
+    border-radius: 5px;
+}
+
+/*-----------オーバーライド-----------*/
+
+p {
+    margin: 0;
+}
+
+input[type=text]:focus {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+}
+
+/*-----------bootstrapオーバーライド-----------*/
+
+.category .col-9 {
+    padding-right: 0px;
+}
+
+.category .col-4 {
+    padding: 0px;
+}
+
+.category .col-2 {
+    padding: 0px;
+}
+
+.category .col-lg-4 {
+    padding-right: 0px;
+}
+
+.category .col-sm-4 {
+    padding: 0px;
+}
+
+.category .col-1 {
+    padding: 0px;
+    margin: 0;
+    text-align: center;
+}
+
+.category .col-md-4 {
+    padding: 0px;
+}
+
+.category .col-md-2 {
+    padding: 0px;
+}
+
+
+/* デバッグ用 */
+
+.debugBack {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+

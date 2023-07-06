@@ -1,0 +1,815 @@
+.canvas-background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: rgba(223, 224, 238, 0.9);
+  z-index: 200;
+  text-align: center;
+  border-radius: 4px;
+  width: 98%;
+  height: 98%;
+  border: solid 1px #1f0b58;
+  display: none;
+  color: #000000;
+}
+
+.canvasarea {
+  margin: 1px;
+  display: inline-block;
+  width: 99%;
+  height: 92%;
+  background: radial-gradient(rgb(223, 224, 238), rgb(144, 145, 179));
+  border: solid 1px rgb(73, 73, 12);
+  border-radius: 6px;
+}
+
+.modal-background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: rgba(223, 224, 238, 0.9);
+  z-index: 100;
+  text-align: center;
+  border-radius: 4px;
+  width: 94%;
+  border: solid 1px #1f0b58;
+  display: none;
+  color: #000000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 90%;
+    box-shadow: 0px 0px 8px rgb(153, 153, 153);
+
+}
+
+#modal-background::-webkit-scrollbar {
+  width: 3px;
+}
+
+#modal-background::-webkit-scrollbar-track {
+  box-shadow: 0 0 4px #aaa inset;
+}
+
+#modal-background::-webkit-scrollbar-thumb {
+  background: radial-gradient(#1959A8, rgb(27, 214, 205));
+}
+
+.blockRight {
+  text-align: right;
+  float: right;
+  vertical-align: middle;
+}
+
+.ModalTitel {
+  font-size: 20px;
+  color: #99adbe;
+  text-align: center;
+  position: relative;
+  font-weight: bold;
+  background: linear-gradient(to bottom, rgb(18, 25, 95), rgb(12, 14, 119));
+}
+
+.ModalTitel:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgb(4, 6, 95);
+}
+
+.modalSubTitel {
+  font-weight: bold;
+  font-size: 18px;
+  padding: 1px 5px;
+  color: #090222;
+}
+
+.modalSubTitelIcon {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  background: linear-gradient(to bottom, rgb(136, 154, 218), rgb(99, 67, 204));
+  margin: 0 2px;
+  vertical-align: middle;
+}
+
+.modalSubTitelLine {
+  border-bottom: solid 1px rgb(151, 150, 179);
+  width: 100%;
+}
+
+.userName {
+  background: linear-gradient(to bottom, rgb(66, 79, 218), rgb(13, 16, 180));
+  color: #f3f2f7;
+  float: left;
+  margin: 5px;
+  padding: 0 3px;
+  border-radius: 10px;
+}
+
+.userNameDisp {
+  margin: 5px;
+  padding: 0 3px;
+  border-radius: 10px;
+  font-size: 14px;
+  box-shadow: 0px 0px 4px rgb(61, 61, 61);
+
+}
+
+.textbox {
+  border: 1px solid #ffffff;
+  border-radius: 0.2em;
+  padding: 0.2em;
+  background-color: #fdfdfd;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.listbox {
+  border: 1px solid #ffffff;
+  border-radius: 0.2em;
+  padding: 0.2em;
+  background-color: #fdfdfd;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.checkbox {
+  margin-right: 10px;
+  -moz-transform: scale(1.4);
+  -webkit-transform: scale(1.4);
+  transform: scale(1.4);
+}
+
+.modalLock {
+  z-index: 50;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: gray;
+  opacity: 0.3;
+}
+
+.loadLock {
+  z-index: 500;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: gray;
+  opacity: 0.8;
+}
+
+.loader, .loader:before, .loader:after {
+  background: #15528f;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+
+.loader {
+  z-index: 501;
+  color: #15528f;
+  text-indent: -9999em;
+  /* margin: 88px auto; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.loader:before, .loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.loader:after {
+  left: 1.5em;
+}
+
+@-webkit-keyframes load1 {
+  0%, 80%, 100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+@keyframes load1 {
+  0%, 80%, 100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+
+.modalSubArea {
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0px 0px 8px rgb(151, 151, 151);
+}
+
+.currentUserArea {
+  background-color: #b3c2d8;
+  width: 42%;
+  border: solid 1px #1f0b58;
+}
+
+.changeUserArea {
+  background-color: #d8ceb3;
+  border: solid 1px #58460b;
+  width: 100%;
+}
+
+.infoArea {
+  background: linear-gradient(to bottom, rgb(223, 224, 238), rgb(144, 145, 179));
+  width: 100%;
+  text-align: left;
+}
+
+.reportArea {
+  background: linear-gradient(to bottom, rgb(237, 237, 240), rgb(198, 198, 218));
+  border: solid 1px rgb(12, 14, 119);
+  width: 100%;
+  text-align: left;
+}
+
+.candidateListArea {
+  background: linear-gradient(to bottom, #ecead2, #b8ad37);
+  border: solid 1px #555006;
+  width: 90%;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 1px;
+  display: inline-block;
+  text-align: center;
+}
+
+.selectArea {
+  background: linear-gradient(to bottom, #d2ecd2, #37b85e);
+  border: solid 1px #0b582b;
+  width: 90%;
+  border-radius: 10px;
+  margin: 5px;
+  padding: 1px;
+  display: inline-block;
+  text-align: center;
+}
+
+.companyArea {
+  background-color: #d8ceb3;
+  border: solid 1px #58460b;
+}
+
+.groupTabDeleteArea {
+  background-color: #e27575;
+  border: solid 1px #3b1506;
+  width: 100%;
+}
+
+.companyText {
+  /* background-color: #a4da94; */
+  color: #1f0b58;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 5px;
+  margin: 5px;
+}
+
+.infoSubArea {
+  padding: 5px;
+}
+
+.infoSubAreaGroup {
+  margin: 2px;
+  padding: 0 5px;
+}
+
+.infoSubAreaUnit {
+  margin: 0 5px;
+  padding: 0 5px;
+}
+
+/*メニュー部品*/
+
+.baseTextBox {
+  background-color: #e9edf7;
+  border-radius: 5px;
+  height: 24px;
+  margin: 0 0 8px;
+}
+
+.nameTextBox {
+  width: 120px;
+}
+
+.numberTextBox {
+  width: 44px;
+}
+
+.tabTextBox {
+  width: 160px;
+}
+
+.remarksTextBox {
+  width: 94%;
+  background-color: #e9edf7;
+  border-radius: 5px;
+}
+
+.loginTextBox {
+  width: 120px;
+}
+
+.companyTextBox {
+  width: 200px;
+}
+
+.categoryOrTaskTextBox {
+  width: 60%;
+}
+
+.baseDayTextBox {
+  background-color: #e9edf7;
+  border-radius: 5px;
+  padding: 0;
+  width: 86px;
+  text-align: left;
+  color: #303251;
+  border: none;
+  height: 24px;
+  margin: 0 2px 8px;
+}
+
+.baseSelectBox {
+  background-color: #e9edf7;
+  border-radius: 5px;
+}
+
+.colorSelectBox {
+  padding: 0;
+  margin: 0;
+  width: 60px;
+}
+
+.baseCheckBox {
+  display: none;
+}
+
+.baseCheckBox+.baseCheckBox-label {
+  display: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  padding-right: 3px;
+  padding-top: 1px;
+  padding-bottom: 0;
+  background-color: #e9edf7;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.baseCheckBox+.baseCheckBox-label:before {
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  left: 5px;
+  top: 5px;
+  border: 1px solid;
+  border-color: #3f3579;
+  background-color: #FFFFFF;
+}
+
+.baseCheckBox:checked+.baseCheckBox-label:before {
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 13px;
+  height: 13px;
+  left: 6px;
+  top: 5px;
+  border: 2px solid;
+  border-color: #FFFFFF;
+  background-color: #3f3579;
+}
+
+.baseRadioButton {
+  display: none;
+}
+
+.baseRadioButton+.baseRadioButton-label {
+  display: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  padding-left: 25px;
+  padding-right: 1px;
+  background-color: #e9edf7;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.baseRadioButton+.baseRadioButton-label:before {
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  left: 5px;
+  top: 4px;
+  border: 1px solid;
+  border-color: #3f3579;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+.baseRadioButton:checked+.baseRadioButton-label:before {
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  left: 4px;
+  top: 3px;
+  background-color: #3f3579;
+  border: double 4px #FFFFFF;
+  border-radius: 50%;
+}
+
+.baseRadioButtonBack {
+  background-color: #e9edf7;
+  border-radius: 5px;
+  display: block;
+  padding-right: 3px;
+  float: right;
+  margin-left: 4px;
+}
+
+.baseRadioButtonBack label {
+  padding: 0;
+  margin: 0;
+}
+
+.baseLabel {
+  font-size: 16px;
+  color: #1e214d;
+  font-weight: bold;
+}
+
+.centerArea {
+  width: 100%;
+  text-align: center;
+}
+
+.rightArea {
+  width: 100%;
+  text-align: right;
+}
+
+.divRight {
+  float: right;
+}
+
+/*-----------ボタン、アイコン関連-----------*/
+
+.modalBotton {
+  border-radius: 50%;
+  display: inline-block;
+  color: #FFF;
+  cursor: pointer;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .12), 0 2px 2px 0 rgba(0, 0, 0, .24);
+}
+
+.userGroupAdd {
+  float: right;
+  /* margin-top: 4px; */
+  padding: 0 6px;
+  background: radial-gradient( #165fdc, #5f8fd6);
+  font-weight: bold;
+  font-size: 14px;
+  margin: 2px;
+}
+
+.userGroupDelete {
+  float: right;
+  /* margin-top: 4px; */
+  padding: 0 7px;
+  background: radial-gradient(#e2e6ae, #c5c906);
+  font-weight: bold;
+  font-size: 14px;
+  margin: 2px;
+}
+
+.addDeleteBotton:hover {
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+  color: rgb(27, 25, 2);
+}
+
+.modalDecisionButton {
+  height: 24px;
+  font-size: 16px;
+  display: inline-block;
+  padding: 0 5px;
+  margin: 3px;
+  border-radius: 3px;
+  border: solid 1px #303251;
+  background: linear-gradient(to bottom, #1959A8, rgb(27, 214, 205));
+  user-select: none;
+  color: rgb(231, 227, 175);
+}
+
+.modalDecisionButton:hover {
+  color: #6d0000;
+  cursor: pointer;
+}
+
+.modalSubButton {
+  height: 22px;
+  margin: 5px;
+  display: inline-block;
+  padding: 0 5px;
+  border-radius: 2px;
+  user-select: none;
+  color: rgb(230, 241, 243);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.modalSubButton:active {
+  -webkit-transform: translateY(3px);
+  transform: translateY(3px);
+  border-bottom: none;
+}
+
+.modalSubButton:hover {
+  color: rgb(44, 41, 230);
+  cursor: pointer;
+}
+
+.subButtonUpdate {
+  background: linear-gradient(to bottom, rgb(159, 168, 25), rgb(218, 211, 118));
+  border: solid 1px #7c6c0e;
+  color: #524708;
+}
+
+.subButtonDelete {
+  background: linear-gradient(to bottom, rgb(168, 70, 25), rgb(214, 130, 116));
+  border: solid 1px #75280a;
+  color: #50190c;
+}
+
+.subButtonSelect {
+  background: linear-gradient(to bottom, rgb(58, 168, 25), rgb(127, 207, 90));
+  border: solid 1px #0a6e40;
+  color: #083b1d;
+}
+
+/*セレクトボックス*/
+
+.tabColorSelect {
+  border-radius: 5px;
+  border: none;
+  background-color: #FFF;
+  text-align: center;
+}
+
+/*メッセージ*/
+
+.Notice {
+  z-index: 999;
+  position: fixed;
+  top: 90%;
+  left: 60%;
+  animation-duration: 1.5s;
+  animation-name: RightToLeft;
+  animation-iteration-count: 1.0;
+  width: 40%;
+  height: 40px;
+  float: right;
+  color: #fff;
+  border-radius: 10px 0 0 10px;
+  text-align: left;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+@keyframes RightToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(60%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*レポート*/
+
+.reportUserLine {
+  border-bottom: solid 2px rgb(177, 172, 172);
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.reportTabLine {
+  border-bottom: solid 1px #ccc;
+  width: 100%;
+}
+
+/* .reportArea {
+  background-color: #dce8ec;
+  border: solid 1px #031c20;
+  width: 100%;
+  margin: 5px 10px;
+  padding: 10px 15px;
+  color: #000;
+  display: block;
+  border-radius: 2px;
+  text-align: left;
+} */
+
+.reportTabText {
+  margin-top: 8px;
+}
+
+.reportTabName {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.reportGroupName {
+  font-size: 12px;
+}
+
+.reportCategoryName {
+  font-size: 14px;
+  margin: 0 5px;
+}
+
+.miniLoader, .miniLoader:before, .miniLoader:after {
+  width: 1em;
+  height: 1em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1s infinite ease-in-out;
+  animation: load7 1s infinite ease-in-out;
+}
+
+.miniLoader {
+  position: fixed;
+  top: 90%;
+  left: 90%;
+  color: #2877d1;
+  font-size: 10px;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+.miniLoader:before, .miniLoader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+
+.miniLoader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.miniLoader:after {
+  left: 1.5em;
+}
+
+@-webkit-keyframes load7 {
+  0%, 80%, 100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+@keyframes load7 {
+  0%, 80%, 100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+.validationMessage {
+  font-size: 12px;
+  color: #e24a0e;
+  margin: 1px;
+  padding: 1px;
+  text-align: left;
+}
+
+/* jqueryUI daialog */
+
+.dialogCustom {
+  background: darkgray;
+  padding: 0;
+}
+
+.dialogCustom .ui-resizable {
+  background: darkgray;
+}
+
+.dialogCustom .ui-draggable {
+  background: darkgray;
+}
+
+.dialogCustom .ui-dialog-buttons {
+  background: darkgray;
+}
+
+.dialogCustom .ui-widget-content {
+  background: darkgray;
+}
+
+.dialogCustom .ui-dialog-titlebar {
+  color: #99adbe;
+  background: linear-gradient(to bottom, rgb(18, 25, 95), rgb(12, 14, 119));
+}
+
+.dialogCustom .ui-dialog-content {
+  color: navy;
+  background-color: rgba(223, 224, 238, 0.9);
+}
+
+.dialogCustom .ui-dialog-buttonpane {
+  background-color: rgba(223, 224, 238, 0.9);
+  margin: 0;
+}
+
+.dialogCustom .ui-resizable-handle {
+  background: linear-gradient(to bottom, rgb(18, 25, 95), rgb(12, 14, 119));
+}
+
+.dialogCustom .ui-dialog-titlebar-close {
+  display: none;
+}
+
+/* bootstrapオーバライド */
+
+.modalcol .col-md-6 {
+  padding: 5px;
+}
+
+.modalcol .col-md-12 {
+  padding: 5px;
+}
+
+.modalcol {
+  width: 100%;
+  margin: auto;
+}

@@ -1,0 +1,13 @@
+以下ソースのファイルをサーバにアップロードする
+
+cd [プロジェクトフォルダ]/src/laravel/database/migrations
+scp -P [webサーバポート] *.php root@[webサーバIP]:/var/www/laravel/database/migrations/
+
+#webサーバで以下を実行する
+マイグレーション
+cd /var/www/laravel
+composer dump-autoload
+php artisan migrate
+
+ファイルを削除する
+rm -f /var/www/laravel/database/migrations/*

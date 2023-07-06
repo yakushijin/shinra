@@ -1,0 +1,9 @@
+yum install git
+
+cd /usr/local
+git clone https://github.com/certbot/certbot
+/usr/local/certbot/certbot-auto certonly --webroot -w /var/www/$wwwhome/public -d $wwwname -m $mymailaddress --agree-tos -n --expand
+sed -i -e "s/\/etc\/nginx\/ssl\/cert.crt/\/etc\/letsencrypt\/live\/$wwwname\/cert.pem/g" /etc/nginx/conf.d/$wwwname.conf
+sed -i -e "s/\/etc\/nginx\/ssl\/cert.key/\/etc\/letsencrypt\/live\/$wwwname\/privkey.pem/g" /etc/nginx/conf.d/$wwwname.conf
+rm -fR /etc/nginx/ssl
+systemctl restart nginx
